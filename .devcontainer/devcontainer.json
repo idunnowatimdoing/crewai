@@ -1,0 +1,24 @@
+{
+  "name": "CrewAI Development",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3"
+      },
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
+    }
+  },
+  "postCreateCommand": "pip install .[tools,dev] && sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev && pre-commit install",
+  "updateContentCommand": {
+    "python": {
+      "minVersion": "3.10",
+      "maxVersion": "3.13"
+    }
+  }
+}
